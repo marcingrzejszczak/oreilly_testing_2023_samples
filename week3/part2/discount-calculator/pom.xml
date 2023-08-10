@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example.testingworkshop</groupId>
+		<artifactId>testing-workshop-2023-samples-parent-week3-part2</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>discount-calculator</artifactId>
+	<packaging>jar</packaging>
+
+	<properties>
+		<javalin.version>5.4.2</javalin.version>
+		<junit-bom.version>5.9.2</junit-bom.version>
+		<logback.version>1.4.7</logback.version>
+		<jackson.version>2.15.1</jackson.version>
+
+		<maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+		<slf4j-simple.version>2.0.6</slf4j-simple.version>
+	</properties>
+
+	<name>${project.artifactId}</name>
+	<description>${project.artifactId}</description>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>io.javalin</groupId>
+			<artifactId>javalin</artifactId>
+			<version>${javalin.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- TODO: Fix me - Add Spring Cloud Starter Contract Verifier dependency -->
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- TODO: Fix me - Add Spring Cloud BOM dependency -->
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+			</plugin>
+			<!-- TODO: Fix me - Set up Spring Cloud Contract Maven plugin
+				HINTS:
+				- extensions must be true
+				- use a single base class for tests
+				- use the EXPLICIT mode of tests
+			-->
+		</plugins>
+	</build>
+</project>
