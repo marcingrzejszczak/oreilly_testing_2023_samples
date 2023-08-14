@@ -5,16 +5,16 @@ import java.util.Objects;
 public class Message {
 	final EventType eventType;
 
-	final String message;
+	final String applierName;
 
 	public Message(EventType eventType) {
 		this.eventType = eventType;
-		this.message = null;
+		this.applierName = null;
 	}
 
-	public Message(EventType eventType, String message) {
+	public Message(EventType eventType, String applierName) {
 		this.eventType = eventType;
-		this.message = message;
+		this.applierName = applierName;
 	}
 
 	@Override
@@ -26,19 +26,19 @@ public class Message {
 			return false;
 		}
 		Message message1 = (Message) o;
-		return eventType == message1.eventType && Objects.equals(message, message1.message);
+		return eventType == message1.eventType && Objects.equals(applierName, message1.applierName);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(eventType, message);
+		return Objects.hash(eventType, applierName);
 	}
 
 	@Override
 	public String toString() {
 		return "Message{" +
 				"eventType=" + eventType +
-				", message='" + message + '\'' +
+				", applierName='" + applierName + '\'' +
 				'}';
 	}
 }

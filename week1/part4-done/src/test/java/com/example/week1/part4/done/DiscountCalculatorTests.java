@@ -95,10 +95,10 @@ class DiscountCalculatorTests {
 
 			// If we don't care about order of events
 			Awaitility.await().untilAsserted(() -> {
-				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_SUBMITTED && "first".equals(argument.message)));
-				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_FINISHED && "first".equals(argument.message)));
-				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_SUBMITTED && "second".equals(argument.message)));
-				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_FINISHED && "second".equals(argument.message)));
+				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_SUBMITTED && "first".equals(argument.applierName)));
+				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_FINISHED && "first".equals(argument.applierName)));
+				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_SUBMITTED && "second".equals(argument.applierName)));
+				BDDMockito.then(messageSender).should().sendMessage(argThat(argument -> argument.eventType == EventType.TASK_DISCOUNT_CALCULATION_FINISHED && "second".equals(argument.applierName)));
 			});
 		}
 	}
@@ -162,7 +162,7 @@ class DiscountCalculatorTests {
 
 		@Override
 		public void sendMessage(Message message) {
-			List<EventType> events = messages.computeIfAbsent(message.message, s -> new CopyOnWriteArrayList<>());
+			List<EventType> events = messages.computeIfAbsent(message.applierName, s -> new CopyOnWriteArrayList<>());
 			events.add(message.eventType);
 		}
 

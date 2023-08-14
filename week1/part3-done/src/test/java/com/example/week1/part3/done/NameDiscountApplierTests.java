@@ -1,7 +1,5 @@
 package com.example.week1.part3.done;
 
-import net.bytebuddy.implementation.bind.annotation.RuntimeType;
-import org.assertj.core.api.BDDAssertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.example.week1.part3.done.assertion.PersonAssert.then;
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
 class NameDiscountApplierTests {

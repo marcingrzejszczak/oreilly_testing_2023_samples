@@ -1,6 +1,5 @@
 package com.example.week1.part2.done;
 
-import org.assertj.core.api.BDDAssertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.BDDAssertions.then;
