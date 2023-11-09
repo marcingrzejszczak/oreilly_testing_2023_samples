@@ -1,8 +1,5 @@
 package com.example.week2.part4;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.ConnectionFactory;
 import org.awaitility.Awaitility;

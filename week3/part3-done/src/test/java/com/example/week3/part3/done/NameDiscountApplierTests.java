@@ -1,12 +1,8 @@
 package com.example.week3.part3.done;
 
 import org.assertj.core.api.BDDAssertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.BDDAssertions.then;
-
 
 class NameDiscountApplierTests {
 

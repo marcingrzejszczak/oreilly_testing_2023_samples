@@ -2,13 +2,11 @@ package com.example.week1.part3.done;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
 
 import static com.example.week1.part3.done.assertion.PersonAssert.then;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 class OccupationDiscountApplierTests {

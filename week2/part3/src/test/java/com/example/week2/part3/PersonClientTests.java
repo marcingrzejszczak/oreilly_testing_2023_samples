@@ -7,12 +7,8 @@ import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.RegisterExtension;
 
 import org.springframework.web.client.RestTemplate;
-
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 
 class PersonClientTests {
 

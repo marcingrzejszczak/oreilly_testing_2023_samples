@@ -3,7 +3,6 @@ package com.example.week1.part3.done;
 import java.util.Arrays;
 import java.util.Collections;
 
-import com.example.week1.part3.done.assertion.PersonAssert;
 import org.junit.jupiter.api.Test;
 
 import static com.example.week1.part3.done.assertion.PersonAssert.then;

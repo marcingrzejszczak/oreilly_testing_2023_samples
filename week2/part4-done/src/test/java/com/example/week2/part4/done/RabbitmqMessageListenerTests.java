@@ -1,22 +1,20 @@
 package com.example.week2.part4.done;
 
+import static org.mockito.Mockito.mock;
+
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabbitmq.client.ConnectionFactory;
 import org.assertj.core.api.BDDAssertions;
 import org.awaitility.Awaitility;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 
-import static org.mockito.Mockito.mock;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rabbitmq.client.ConnectionFactory;
 
 class RabbitmqMessageListenerTests {
 
@@ -57,11 +55,15 @@ class RabbitmqMessageListenerTests {
 		void should_receive_a_message_from_broker() throws IOException, TimeoutException {
 			givenAMessageSentToBroker(inputMessage, inputQueue);
 
-			listener.pollForMessage(person -> { });
 
 			Awaitility.await()
-					.untilAtomic(listener.message,
-							Matchers.equalTo(new Person("smith", 100, Occupation.EMPLOYED)));
+					.atMost(200, TimeUnit.MILLISECONDS)
+					.untilAsserted(() -> {
+						listener.pollForMessage(person -> { });
+
+						// TODO: Update the slides
+						BDDAssertions.then(listener.message.get()).isEqualTo(new Person("smith", 100, Occupation.EMPLOYED));
+					});
 		}
 	}
 }

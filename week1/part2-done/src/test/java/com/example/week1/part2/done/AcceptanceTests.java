@@ -1,6 +1,5 @@
 package com.example.week1.part2.done;
 
-import com.example.week1.part2.done.assertion.DiscountAssert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

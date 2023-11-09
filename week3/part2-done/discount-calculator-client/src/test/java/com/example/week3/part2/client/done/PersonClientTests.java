@@ -2,12 +2,10 @@ package com.example.week3.part2.client.done;
 
 import java.net.http.HttpClient;
 import java.time.Duration;
-import java.time.temporal.TemporalUnit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.assertj.core.api.BDDAssertions;
+
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 

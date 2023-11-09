@@ -7,7 +7,6 @@ import net.jqwik.api.Example;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.Provide;
-import org.assertj.core.api.Assertions;
 
 import static com.example.week3.part4.done.assertion.DiscountAssert.then;
 import static org.assertj.core.api.BDDAssertions.thenThrownBy;

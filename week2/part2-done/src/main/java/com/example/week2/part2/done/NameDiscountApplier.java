@@ -1,7 +1,5 @@
 package com.example.week2.part2.done;
 
-import org.apache.commons.logging.Log;
-
 public class NameDiscountApplier implements DiscountApplier {
 
 	private final int threshold;
