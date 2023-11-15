@@ -55,13 +55,11 @@ class RabbitmqMessageListenerTests {
 		void should_receive_a_message_from_broker() throws IOException, TimeoutException {
 			givenAMessageSentToBroker(inputMessage, inputQueue);
 
-
 			Awaitility.await()
 					.atMost(200, TimeUnit.MILLISECONDS)
 					.untilAsserted(() -> {
 						listener.pollForMessage(person -> { });
 
-						// TODO: Update the slides
 						BDDAssertions.then(listener.message.get()).isEqualTo(new Person("smith", 100, Occupation.EMPLOYED));
 					});
 		}
